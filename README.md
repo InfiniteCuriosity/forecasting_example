@@ -6,17 +6,16 @@ The data set is freely available as a stand-along package in the R environment. 
 
 The license for the data set is contained in the ReadMe file:
 
-Package: nycflights13
-Title: Flights that Departed NYC in 2013
-Version: 1.0.2
-Authors@R: 
-    c(person(given = "Hadley",
-             family = "Wickham",
-             role = c("aut", "cre"),
-             email = "hadley@rstudio.com"),
-      person(given = "RStudio",
-             role = "cph"))
-Description: Airline on-time data for all flights departing NYC in 2013.
-    Also includes useful 'metadata' on airlines, airports, weather, and
-    planes.
+Package: nycflights13<br>
+Title: Flights that Departed NYC in 2013<br>
+Version: 1.0.2<br>
+Authors@R:<br>
+    c(person(given = "Hadley",<br>
+             family = "Wickham",<br>
+             role = c("aut", "cre"),<br>
+             email = "hadley@rstudio.com"),<br>
+      person(given = "RStudio",<br>
+             role = "cph"))<br>
+Description: Airline on-time data for all flights departing NYC in 2013.<br>
+    Also includes useful 'metadata' on airlines, airports, weather, and planes.<br>
 License: CC0
