@@ -19,7 +19,8 @@ Our first step will be converting the nycflights13 data set into a tsibble, so t
 
 ```{r Import the data, convert to a tsibble}
 
-flights <- nycflights13::flights
+flights <- nycflights13::flights %>% 
+    mutate(date = date_build(year = year, month = month, day = day))
 
 flight1 <- flights %>% 
   mutate(date = date_build(year = year, month = month, day = day))
@@ -78,6 +79,49 @@ flight1 <- flight1 %>%
   ungroup()
 
 ```
+
+# Calculate the most common carrier, destination and origin, and add those to the data set
+
+```{r}
+# Determine most common destination per day
+mcd <- flights %>% 
+  select(date, dest) %>% 
+  group_by(date, dest) %>% 
+  summarise(most_common_destination = n()) %>% 
+  arrange(desc(most_common_destination)) %>% 
+  filter(row_number() == 1) %>% 
+  arrange(date)
+
+flight1 <- flight1 %>% 
+  mutate(most_common_destination = mcd$dest)
+
+# Determine most common carrier per day
+mcc <- flights %>% 
+  select(date, carrier) %>% 
+  group_by(date, carrier) %>% 
+  summarise(most_common_carrier = n()) %>% 
+  arrange(desc(most_common_carrier)) %>% 
+  filter(row_number() == 1) %>% 
+  arrange(date)
+
+flight1 <- flight1 %>% 
+  mutate(most_common_carrier = mcc$carrier)
+
+# Determine most common origin per day
+mco <- flights %>% 
+  select(date, origin) %>% 
+  group_by(date, origin) %>% 
+  summarise(most_common_origin = n()) %>% 
+  arrange(desc(most_common_origin)) %>% 
+  filter(row_number() == 1) %>% 
+  arrange(date)
+
+flight1 <- flight1 %>% 
+  mutate(most_common_origin = origin)
+
+
+```
+
 
 # Create a tsibble, from which we can do forecasting
 
