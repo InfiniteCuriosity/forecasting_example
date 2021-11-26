@@ -1,0 +1,21 @@
+---
+title: "Introduction.RMD"
+author: "Russ Conte"
+date: "11/26/2021"
+output: html_document
+---
+
+Welcome to this full write-up forecasting example using the nycflights13 data set. The solutions here will follow the chapters in Forecasting Principles and Practice, 3rd edition, by Rob J. Hyndman, and George Athanasopoulos.
+
+The chapters are:
+
+1. Creating time series objects, plotting and autocorrelation
+2. Decomposing time series data
+3. Time series features, including autocorrelation, additive and multiplicative decomposition, seasonal and trend decomposition using loess (STL)
+4. A basic set of forecasting skills, including mean, naïve, seasonal naïve, residual diagnostics, and more.
+5. Time series regression models
+6. Exponential smoothing models
+7. ARIMA models
+8. Dynamic regression models
+9. Forecasting hierarchical and grouped time series
+10. Advanced forecasting methods
